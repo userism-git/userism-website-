@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Us</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" type="image/png" href="favicon.png" />
+  <link rel="apple-touch-icon" href="favicon.png" />
+  <meta name="theme-color" content="#00FFFF" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+</head>
+<body class="about">
+  
+  <nav class="overlay-menu">
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="events.html">Events</a></li>
+      <li><a href="projects.html">Projects</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </nav>
+<!-- Language Switcher -->
+<div class="lang-switcher" aria-label="Language selector">
+  <button class="lang-btn" aria-expanded="false" aria-controls="lang-menu">🌐</button>
+  <div class="lang-menu" id="lang-menu" role="menu" aria-hidden="true">
+    <a href="index.html" role="menuitem">EN</a>
+    <a href="index-fr.html" role="menuitem">FR</a>
+    <a href="index-it.html" role="menuitem">IT</a>
+    <a href="index-es.html" role="menuitem">ES</a>
+    <a href="index-zh.html" role="menuitem">中文</a>
+  </div>
+</div>
+
+  <section class="page-section">
+    <div class="content">
+      <h2>About Us</h2>
+
+      <!-- Add the image here -->
+      <img src="assets/images/rumo-martina.jpg" alt="Rumo and Martina" class="about-photo">
+
+      <p>
+        <strong>Renato:</strong> Conceptual exploration, philosophy, politics and ethics on our digital era.<br>
+        <strong>Martina:</strong> Design and object-based research.<br><br>
+        Together we reflect on the digital consumer and the evolving notion of userism.
+      </p>
+
+      <p><strong>Contact us :</strong> <br>renatopisani@proton.me <br>
+        martina@baus.ec
+      </p>
+    </div>
+  </section>
+
+  <footer class="footer-carousel">
+    <div class="scroll-text">
+     © 2025 The Userism Project — An open work by Renato and Martina.© 2025 The Userism Project — An open work by Renato and Martina.© 2025 
+      © 2025 The Userism Project — An open work by Renato and Martina.© 2025 The Userism Project — An open work by Renato and Martina.© 2025
+    </div>
+  </footer>
+
+  <script>// Language switcher
+    (function () {
+      const langBtn = document.querySelector('.lang-btn');
+      const langSwitcher = document.querySelector('.lang-switcher');
+      const langMenu = document.querySelector('.lang-menu');
+
+      langBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const expanded = langBtn.getAttribute('aria-expanded') === 'true';
+        langBtn.setAttribute('aria-expanded', String(!expanded));
+        langMenu.style.display = expanded ? 'none' : 'flex';
+      });
+
+      // Close on outside click
+      document.addEventListener('click', (e) => {
+        if (!langSwitcher.contains(e.target)) {
+          langBtn.setAttribute('aria-expanded', 'false');
+          langMenu.style.display = 'none';
+        }
+      });
+    })();</script>
+</body>
+</html>

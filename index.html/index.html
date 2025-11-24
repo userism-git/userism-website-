@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Userism</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" type="image/png" href="favicon.png" />
+  <link rel="apple-touch-icon" href="favicon.png" />
+  <meta name="theme-color" content="#00FFFF" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+</head>
+<body class="home">
+
+  <!-- Intro / Preloader -->
+  <div id="intro">
+    <img src="assets/images/user.png" class="intro-logo" alt="Userism logo">
+  </div>
+
+  <!-- Page wrapper / content shown after intro -->
+  <div id="content" aria-hidden="true">
+    <!-- Overlay navigation -->
+    <nav class="overlay-menu">
+      <ul>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="events.html">Events</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <!-- language switcher as a list item so markup is valid -->
+        <li class="lang-switcher">
+          <button class="lang-btn" aria-expanded="false">🌐</button>
+          <div class="lang-menu" role="menu" aria-hidden="true">
+            <a href="index.html" role="menuitem">EN</a>
+            <a href="index-fr.html" role="menuitem">FR</a>
+            <a href="index-it.html" role="menuitem">IT</a>
+            <a href="index-es.html" role="menuitem">ES</a>
+            <a href="index-zh.html" role="menuitem">中文</a>
+          </div>
+        </li>
+      </ul>
+    </nav>
+    <!-- Landing -->
+    <section id="landing" class="page-section gradient-cmy">
+      <div class="content">
+        <img src="assets/images/user.png" class="landing-logo"alt="Userism">
+        <h1>Userism Collective</h1>
+        <p></p>
+      </div>
+    </section>
+    
+<section id="typewriter-section" style="height:200vh;">
+  <div id="typewriter-text"></div>
+</section>
+
+<script>
+// ✦ SCROLL-CONTROLLED TYPEWRITER ✦
+const message = `Why should we care about the power we hold every time we scroll, click, or tap?`;
+
+const output = document.getElementById("typewriter-text");
+const section = document.getElementById("typewriter-section");
+
+window.addEventListener("scroll", () => {
+  const rect = section.getBoundingClientRect();
+  const windowH = window.innerHeight;
+
+  // Calculate scroll progress inside this section (0 → 1)
+  let progress = 1 - rect.top / windowH;
+  progress = Math.max(0, Math.min(1, progress));
+
+  // Number of letters to show
+  const chars = Math.floor(message.length * progress);
+
+  // Reveal text
+  output.textContent = message.substring(0, chars);
+});
+</script>
+
+    <!-- Main Feed (fixed id) -->
+    <section id="main-feed" class="page-section gradient-cmy-alt">
+      <div class="content">
+        <h2>Userism</h2>
+        <blockquote>Ideas, updates, and thoughts from the Userism collective</blockquote>
+  
+        <div class="main-feed">
+
+  <h3>What is Userism?</h3>
+
+  <p>
+    To explain it, let’s start from the logo: a hand gripping a smartphone.
+    That’s basically userism. But if you want, I can tell you more about that
+    hand and that smartphone.
+  </p>
+
+  <p>
+    The first is us, humans: you reading and me writing. We understand each
+    other, and only we can. That’s why it’s important to place ourselves at the
+    center of any ideology or movement.
+  </p>
+
+  <blockquote>
+    Userism starts from a simple gesture: a hand holding a device — the moment
+    where human intention meets the digital world.
+  </blockquote>
+
+  <h3>The Digital Gesture</h3>
+
+  <p>
+    The smartphone is not just a tool — it is a window onto a human, abstract
+    space we call “the digital.” The hand both desires it and controls it.
+  </p>
+
+  <p>
+    This act mirrors our daily lives: physical beings constantly interfacing
+    with an immaterial world that we power simply by accessing it.
+  </p>
+
+  <h3>The Value We Create</h3>
+
+  <p>
+    Think about communism and its hammer and sickle symbol. It represented those
+    who produced value with physical labor. Today, our collective labor is not
+    physical, it is digital.
+  </p>
+
+  <p>
+    Every time we connect, click, scroll, or buy, we generate the value that
+    sustains the digital economy.
+  </p>
+
+  <blockquote>
+    You, the user, are the engine of the digital world, even if nobody told
+    you.
+  </blockquote>
+
+  <!-- Continue the rest of your text sectioned into paragraphs and h3 titles -->
+
+      </div>
+    </section>
+    <!-- Projects -->
+    <section id="Projects" class="page-section gradient-cmy">
+      <div class="content">
+        <h2>Projects</h2>
+        <p></p>
+      </div>
+    </section>
+
+    <!-- Events -->
+    <section id="events" class="page-section gradient-cmy">
+      <div class="content">
+        <h2>Events</h2>
+        <p>Short videos, updates, and thoughts from the Userism collective — documenting an evolving practice.</p>
+        <video controls width="100%">
+          <source src="assets/videos/vlog1.mp4" type="video/mp4" />
+        </video>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="page-section gradient-cmy-alt">
+      <div class="content">
+        <h2>Join & Contact</h2>
+        <p>Text us your thoughts, or join our Telegram channel to participate in the conversation.</p>
+        <form class="contact-form">
+          <input type="text" placeholder="Your name" required>
+          <input type="email" placeholder="Your email" required>
+          <textarea placeholder="Your message" required></textarea>
+          <button type="submit">Send</button>
+        </form>
+        <a href="https://telegram.im/userismupdates" class="telegram-link" target="_blank" rel="noopener">Join our Telegram</a>
+      </div>
+    </section>
+
+    <footer class="footer-carousel">
+      <div class="scroll-text" aria-hidden="true">
+        © 2025 The Userism Project — An open work by Renato and Martina.© 2025 The Userism  Project — An open work by Renato and Martina.— © 2025 The Userism Project — An open work by Renato and Martina.
+        © 2025 The Userism  Project — An open work by Renato and Martina.© 2025 The Userism  Project — An open work by Renato and Martina. — © 2025 The Userism Project — An open work by Renato and Martina.
+      </div>
+    </footer>
+  </div> <!-- /#content -->
+
+  <!-- SCRIPTS: combined and fixed -->
+  <script>
+    // Overlay menu visibility on scroll
+    (function () {
+      let lastScrollY = window.scrollY;
+      const menu = document.querySelector('.overlay-menu');
+      let isScrolling;
+      window.addEventListener('scroll', () => {
+        if (window.scrollY > lastScrollY) {
+          menu.classList.add('hidden');
+        } else {
+          menu.classList.remove('hidden');
+        }
+        lastScrollY = window.scrollY;
+        clearTimeout(isScrolling);
+        isScrolling = setTimeout(() => {
+          menu.classList.remove('hidden');
+        }, 800);
+      });
+    })();
+
+    // Language switcher
+    (function () {
+      const langBtn = document.querySelector('.lang-btn');
+      const langSwitcher = document.querySelector('.lang-switcher');
+      const langMenu = document.querySelector('.lang-menu');
+
+      langBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const expanded = langBtn.getAttribute('aria-expanded') === 'true';
+        langBtn.setAttribute('aria-expanded', String(!expanded));
+        langMenu.style.display = expanded ? 'none' : 'flex';
+      });
+
+      // Close on outside click
+      document.addEventListener('click', (e) => {
+        if (!langSwitcher.contains(e.target)) {
+          langBtn.setAttribute('aria-expanded', 'false');
+          langMenu.style.display = 'none';
+        }
+      });
+    })();
+
+    // Intro / preloader logic
+    (function () {
+      window.addEventListener("load", () => {
+        const intro = document.getElementById("intro");
+        const content = document.getElementById("content");
+
+        // If you used global "body { overflow: hidden }" in CSS, re-enable scrolling here:
+        document.body.style.overflow = ''; // restores default (auto)
+
+        // reveal content for screen readers / accessibility
+        content.setAttribute('aria-hidden', 'false');
+
+        setTimeout(() => {
+          intro.style.opacity = "0";
+          setTimeout(() => {
+            intro.style.display = "none";
+            document.body.classList.add("loaded");
+          }, 1000); // match your CSS transition time
+        }, 700); // delay before fade
+      });
+    })();
+  </script>
+
+</body>
+</html>
+
+

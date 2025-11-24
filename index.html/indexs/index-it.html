@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Userism</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" type="image/png" href="favicon.png" />
+  <link rel="apple-touch-icon" href="favicon.png" />
+  <meta name="theme-color" content="#00FFFF" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- Intro / Preloader -->
+  <div id="intro">
+    <img src="assets/images/user.png" class="intro-logo" alt="Userism logo">
+  </div>
+
+  <!-- Page wrapper / content shown after intro -->
+  <div id="content" aria-hidden="true">
+    <!-- Overlay navigation -->
+    <nav class="overlay-menu">
+      <ul>
+        <li><a href="siamo.html">Chi Siamo</a></li>
+        <li><a href="#events">Eventi</a></li>
+        <li><a href="#projects">Progetti</a></li>
+        <li><a href="#contact">Contattaci</a></li>
+        <!-- language switcher as a list item so markup is valid -->
+        <li class="lang-switcher">
+          <button class="lang-btn" aria-expanded="false">🌐</button>
+          <div class="lang-menu" role="menu" aria-hidden="true">
+            <a href="index.html" role="menuitem">EN</a>
+            <a href="index-fr.html" role="menuitem">FR</a>
+            <a href="index-it.html" role="menuitem">IT</a>
+            <a href="index-es.html" role="menuitem">ES</a>
+            <a href="index-zh.html" role="menuitem">中文</a>
+          </div>
+        </li>
+      </ul>
+    </nav>
+
+    <!-- Landing -->
+    <section id="landing" class="page-section gradient-cmy">
+      <div class="content">
+        <img src="assets/images/user.png" alt="Userism">
+
+        <h1>Userismo Collective</h1>
+        <p>A living statement about the digital consumer.</p>
+      </div>
+    </section>
+
+    <!-- Main Feed (fixed id) -->
+    <section id="main-feed" class="page-section gradient-cmy-alt">
+      <div class="content">
+        <h2>Userismo</h2>
+        <blockquote>Ideas, updates, and thoughts from the Userism collective</blockquote>
+        <p></p>
+      </div>
+    </section>
+
+    <!-- Operations -->
+    <section id="operations" class="page-section gradient-cmy">
+      <div class="content">
+        <h2>Operations</h2>
+        <p>"Sometimes a word’s meaning moves from simple to complex and in so doing reveals a social change” - Yu Hua.</p>
+      </div>
+    </section>
+
+    <!-- Events -->
+    <section id="events" class="page-section gradient-cmy">
+      <div class="content">
+        <h2>Events</h2>
+        <p>Short videos, updates, and thoughts from the Userism collective — documenting an evolving practice.</p>
+        <video controls width="100%">
+          <source src="assets/videos/vlog1.mp4" type="video/mp4" />
+        </video>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="page-section gradient-cmy-alt">
+      <div class="content">
+        <h2>Join & Contact</h2>
+        <p>Text us your thoughts, or join our Telegram channel to participate in the conversation.</p>
+        <form class="contact-form">
+          <input type="text" placeholder="Your name" required>
+          <input type="email" placeholder="Your email" required>
+          <textarea placeholder="Your message" required></textarea>
+          <button type="submit">Send</button>
+        </form>
+        <a href="https://t.me/yourchannel" class="telegram-link" target="_blank" rel="noopener">Join our Telegram</a>
+      </div>
+    </section>
+
+    <footer class="footer-carousel">
+      <div class="scroll-text" aria-hidden="true">
+        © 2025 The Userism Project — An open work by Renato and Martina.
+        © 2025 The Userism  Project — An open work by Renato and Martina.
+      </div>
+    </footer>
+  </div> <!-- /#content -->
+
+  <!-- SCRIPTS: combined and fixed -->
+  <script>
+    // Overlay menu visibility on scroll
+    (function () {
+      let lastScrollY = window.scrollY;
+      const menu = document.querySelector('.overlay-menu');
+      let isScrolling;
+      window.addEventListener('scroll', () => {
+        if (window.scrollY > lastScrollY) {
+          menu.classList.add('hidden');
+        } else {
+          menu.classList.remove('hidden');
+        }
+        lastScrollY = window.scrollY;
+        clearTimeout(isScrolling);
+        isScrolling = setTimeout(() => {
+          menu.classList.remove('hidden');
+        }, 800);
+      });
+    })();
+
+    // Language switcher
+    (function () {
+      const langBtn = document.querySelector('.lang-btn');
+      const langSwitcher = document.querySelector('.lang-switcher');
+      const langMenu = document.querySelector('.lang-menu');
+
+      langBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const expanded = langBtn.getAttribute('aria-expanded') === 'true';
+        langBtn.setAttribute('aria-expanded', String(!expanded));
+        langMenu.style.display = expanded ? 'none' : 'flex';
+      });
+
+      // Close on outside click
+      document.addEventListener('click', (e) => {
+        if (!langSwitcher.contains(e.target)) {
+          langBtn.setAttribute('aria-expanded', 'false');
+          langMenu.style.display = 'none';
+        }
+      });
+    })();
+
+    // Intro / preloader logic
+    (function () {
+      window.addEventListener("load", () => {
+        const intro = document.getElementById("intro");
+        const content = document.getElementById("content");
+
+        // If you used global "body { overflow: hidden }" in CSS, re-enable scrolling here:
+        document.body.style.overflow = ''; // restores default (auto)
+
+        // reveal content for screen readers / accessibility
+        content.setAttribute('aria-hidden', 'false');
+
+        setTimeout(() => {
+          intro.style.opacity = "0";
+          setTimeout(() => {
+            intro.style.display = "none";
+            document.body.classList.add("loaded");
+          }, 1000); // match your CSS transition time
+        }, 700); // delay before fade
+      });
+    })();
+  </script>
+
+</body>
+</html>
+
+
