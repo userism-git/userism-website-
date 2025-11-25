@@ -440,7 +440,9 @@ body.loaded #content {
     top: -60px;
   }
 }
-
+#typewriter-section {
+  background-color: #00FFFF; /* Cyan background */
+}
 /* Typewriter text */
 #typewriter-text {
   font-size: 7rem;
@@ -685,3 +687,4 @@ body.event {
   background: #00FFFF;
   color: #000;
 }
+
