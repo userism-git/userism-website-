@@ -442,11 +442,11 @@ body.loaded #content {
 
 /* Typewriter text */
 #typewriter-text {
-  font-size: 7rem;
+  font-size: clamp(2.5rem, 8vw, 7rem);
   font-weight: 700;
   line-height: normal;
-  max-width: 2000px;
-  margin: 50px auto;
+  max-width: 100%;
+  margin: clamp(1rem, 5vw, 50px) auto;
   white-space: pre-wrap;
   color: black;
   min-height: 0px;
