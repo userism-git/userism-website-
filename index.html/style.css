@@ -224,7 +224,7 @@ body.loaded #content {
   list-style: none;
   display: flex;
   gap: 1.5rem;
-  padding: 1rem;
+  padding: 0.5rem 1rem;
   margin: 0;
 }
 
