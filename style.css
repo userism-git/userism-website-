@@ -205,12 +205,15 @@ body.loaded #content {
   position: fixed;
   top: 0;
   left: 0;
-  width: 100%;
-  background: rgba(255, 255, 255, 0);
+  right: 0;
+  z-index: 1000;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px); /* apparently safari needs a special kids code */
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
   display: flex;
   justify-content: center;
   transition: transform 0.5s ease;
-  z-index: 1000;
 }
 
 .overlay-menu.hidden {
@@ -687,4 +690,5 @@ body.event {
   background: #00FFFF;
   color: #000;
 }
+
 
