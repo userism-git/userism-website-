@@ -103,3 +103,12 @@ closeModal.addEventListener("click", () => modal.style.display = "none");
 window.addEventListener("click", e => {
   if (e.target === modal) modal.style.display = "none";
 });
+//Articles thingy to make them open
+function toggleArticle(element) {
+    const content = element.nextElementSibling;
+    if (content.style.display === "block") {
+        content.style.display = "none";
+    } else {
+        content.style.display = "block";
+    }
+}
