@@ -738,11 +738,17 @@ body.event {
     }
 }
 
+/* When article is open */
+.article-content.open {
+    max-height: 1000px; /* Adjust if your articles are longer */
+    padding: 15px;
+}
+
 @media (max-width: 480px) {
     .articles-grid {
         grid-template-columns: 1fr;
     }
-
+}
 /* Articles header section */
 .articles-header {
     margin-top: 80px;
