@@ -122,13 +122,11 @@ window.addEventListener("load", () => {
 
   $(".image").waypoint(
     function(direction) {
-      if (direction === "down") {
-        /* add this.destroy() if you want the animation to only play once */
-        myCallback();
-      }
+      myCallback();
+      this.destroy(); // Play animation once and stop watching
     },
     {
-      offset: "100%"
+      offset: "80%" // Trigger when image is 80% down the screen
     }
   );
 });
