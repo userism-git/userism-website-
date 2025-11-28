@@ -722,14 +722,6 @@ body.event {
     font-weight: 600;
 }
 
-/* Hide article content by default */
-.article-content {
-    padding: 0 15px;
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.4s ease, padding 0.4s ease;
-}
-
 /* Responsive adjustments */
 @media (max-width: 768px) {
     .articles-grid {
@@ -737,10 +729,41 @@ body.event {
     }
 }
 
-/* When article is open */
-.article-content.open {
-    max-height: 1000px; /* Adjust if your articles are longer */
-    padding: 15px;
+/* Modal fullscreen per articoli */
+.article-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.95);
+    z-index: 9999;
+    overflow-y: auto;
+}
+
+.article-modal.active {
+    display: block;
+}
+
+.modal-article-content {
+    max-width: 800px;
+    margin: 60px auto;
+    padding: 60px 40px;
+    background: white;
+    border-radius: 12px;
+    font-size: 1.1rem;
+    line-height: 1.8;
+}
+
+.close-modal {
+    position: fixed;
+    top: 20px;
+    right: 30px;
+    font-size: 40px;
+    color: white;
+    cursor: pointer;
+    z-index: 10000;
 }
 
 @media (max-width: 480px) {
