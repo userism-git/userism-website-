@@ -726,6 +726,22 @@ body.event {
   background: #00FFFF;
   color: #000;
 }
+
+/* ------------------------------------ */
+/* Articles Page Body                   */
+/* ------------------------------------ */
+body.articles {
+  margin: 0;
+  padding: 0;
+  font-family: 'Inter', sans-serif;
+  font-weight: normal;
+  font-size: 15px;
+  line-height: 38px;
+  color: #000000;
+  overflow-y: scroll;
+  background: #00FFFF;  /* cyan */
+}
+
 /* ------------------------------------ */
 /* Articles Page Styles                 */
 /* ------------------------------------ */
