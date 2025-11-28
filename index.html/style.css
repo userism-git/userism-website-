@@ -215,6 +215,8 @@ body.loaded #content {
   -webkit-backdrop-filter: blur(10px);
   display: flex;
   justify-content: center;
+  align-items: center;
+  min-height: 50px;
   transition: transform 0.5s ease;
   z-index: 1000;
   border-bottom: 1px solid rgba(255, 255, 255, 0.2); 
