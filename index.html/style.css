@@ -728,7 +728,18 @@ body.event {
         grid-template-columns: repeat(2, 1fr);
     }
 }
+/* Per la griglia chiusa*/
+.article-content {
+    padding: 0 15px;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease, padding 0.4s ease;
+}
 
+.article-content.open {
+    max-height: 1000px;
+    padding: 15px;
+}
 /* Modal fullscreen per articoli */
 .article-modal {
     display: none;
