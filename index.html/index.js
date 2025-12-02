@@ -158,3 +158,44 @@ window.addEventListener("load", () => {
   
   console.log("Waypoint setup complete");
 });
+
+// Fetch and display article previews on homepage
+function loadArticlePreviews() {
+  fetch('articles.html')
+    .then(response => response.text())
+    .then(html => {
+      // Create a temporary element to parse the HTML
+      const parser = new DOMParser();
+      const doc = parser.parseFromString(html, 'text/html');
+      
+      // Find all article cards
+      const articleCards = doc.querySelectorAll('.article-card');
+      
+      // Get the preview container
+      const previewContainer = document.getElementById('articles-preview');
+      
+      // Clear loading message
+      previewContainer.innerHTML = '';
+      
+      // Take first 3 cards (or all if less than 3)
+      const cardsToShow = Array.from(articleCards).slice(0, 3);
+      
+      // Insert each card
+      cardsToShow.forEach(card => {
+        previewContainer.appendChild(card.cloneNode(true));
+      });
+      
+      // If no cards found
+      if (cardsToShow.length === 0) {
+        previewContainer.innerHTML = '<p>No articles available yet.</p>';
+      }
+    })
+    .catch(error => {
+      console.error('Error loading articles:', error);
+      document.getElementById('articles-preview').innerHTML = 
+        '<p>Failed to load articles.</p>';
+    });
+}
+
+// Load previews when page loads
+window.addEventListener('load', loadArticlePreviews);
