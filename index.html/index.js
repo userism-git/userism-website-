@@ -112,38 +112,6 @@ window.addEventListener("load", () => {
     return;
   }
 
-  // Split the image into cells
-  const results = Splitting({
-    target: ".image",
-    by: "cells",
-    image: true,
-    rows: 8
-  });
-  
-  console.log("Splitting results:", results);
-
-  function playAnimation() {
-    console.log("Playing animation!");
-    const cells = document.querySelectorAll(".cell");
-    console.log("Found cells:", cells.length);
-    
-    var timeline = new TimelineMax();
-    timeline.staggerFromTo(
-      ".cell",
-      0.5,
-      {
-        x: 400,
-        opacity: 0
-      },
-      {
-        x: 0,
-        opacity: 1,
-        ease: Power2.ease
-      },
-      0.05
-    );
-  }
-
   // Use Waypoint to trigger animation
   $(".image").waypoint(
     function(direction) {
@@ -197,5 +165,46 @@ function loadArticlePreviews() {
     });
 }
 
-// Load previews when page loads
-window.addEventListener('load', loadArticlePreviews);
+// Fetch and display event previews on homepage
+function loadEventPreviews() {
+  fetch('events.html')
+    .then(response => response.text())
+    .then(html => {
+      // Create a temporary element to parse the HTML
+      const parser = new DOMParser();
+      const doc = parser.parseFromString(html, 'text/html');
+      
+      // Find all event items
+      const eventItems = doc.querySelectorAll('.event-item');
+      
+      // Get the preview container
+      const previewContainer = document.getElementById('events-preview');
+      
+      // Clear loading message
+      previewContainer.innerHTML = '';
+      
+      // Take first 3 events (or all if less than 3)
+      const eventsToShow = Array.from(eventItems).slice(0, 3);
+      
+      // Insert each event
+      eventsToShow.forEach(event => {
+        previewContainer.appendChild(event.cloneNode(true));
+      });
+      
+      // If no events found
+      if (eventsToShow.length === 0) {
+        previewContainer.innerHTML = '<p>No upcoming events yet.</p>';
+      }
+    })
+    .catch(error => {
+      console.error('Error loading events:', error);
+      document.getElementById('events-preview').innerHTML = 
+        '<p>Failed to load events.</p>';
+    });
+}
+
+// Load all previews when page loads
+window.addEventListener('load', () => {
+  loadArticlePreviews();
+  loadEventPreviews();
+});
